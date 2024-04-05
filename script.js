@@ -45,13 +45,9 @@ async function run() {
     // Page title
     document.querySelector('#title').textContent = data.settings.title;
 
-    // Legend column for controllers
-    let legendControllers = createElementWithClass('div', 'legend');
-    canvasControllers.appendChild(legendControllers);
-
-    // Legend column for positions
-    let legendPositions = createElementWithClass('div', 'legend');
-    canvasPositions.appendChild(legendPositions);
+    // Legend columns
+    canvasControllers.appendChild(createElementWithClass('div', 'legend'));
+    canvasPositions.appendChild(createElementWithClass('div', 'legend'));
     
     // Create the hour columns for controllers
     createHourColumns(canvasControllers, data.settings.start, data.settings.end);
