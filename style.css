@@ -17,6 +17,12 @@ header {
     justify-content: space-between;
 }
 
+@media only screen and (max-width: 600px) {
+    header img{
+        display: none;
+    }
+}
+
 .container{
     padding: 16px;
 }
@@ -29,19 +35,19 @@ header {
     flex-direction: row;
     position: relative;
 
-    
-    width: 100%;
     overflow-x: auto;
+    overflow-y: hidden;
 }
 
 .legend{
     width: var(--legend-width);
     background: #dfebeb;
+    flex-shrink: 0;
 }
 
 .hour-column{
     width: var(--hour-width);
-    height: 400px;
+    height: 100%;
     border-right: 1px solid #c5c5c5;
 
     font-size: 24px;
@@ -50,11 +56,12 @@ header {
 
     position: relative;
     box-sizing: border-box;
+    flex-shrink: 0;
 }
 
 .hour-column-divider{
     width: calc(var(--hour-width)/4);
-    height: calc(400px - 30px);
+    height: 100%;
     border-right: 1px solid #ededed;
 
     color:#737373;

@@ -1,36 +1,38 @@
-async function processData() {
+async function run() {
 
     // Init
     let hourWidth = 125;
     let legendWidth = 300;
     let stripStartYAxis = 60;
     let stripGap = 35;
+    
+    let canvasControllers = document.querySelector('.canvas-controllers');
+    let canvasPositions = document.querySelector('.canvas-positions');
 
     // Fetch the data
     const response = await fetch('nl2024.json');
     const data = await response.json();
-    console.log(data);
 
-    // Set the #title to data.settings.title
+    /**
+     * 
+     * Draw the canvas basics
+     * 
+     */
+
+    // Page title
     document.querySelector('#title').textContent = data.settings.title;
 
-    // Get the canvas element
-    let canvasControllers = document.querySelector('.canvas-controllers');
-    let canvasPositions = document.querySelector('.canvas-positions');
-
-    // Draw the basics
-    // Create the legend column
+    // Legend column for controllers
     let legendControllers = document.createElement('div');
     legendControllers.className = 'legend';
     canvasControllers.appendChild(legendControllers);
 
-    // Create the legend column
+    // Legend column for positions
     let legendPositions = document.createElement('div');
     legendPositions.className = 'legend';
     canvasPositions.appendChild(legendPositions);
     
-
-    // Create the hour columns
+    // Create the hour columns for controllers
     for (let i = data.settings.start; i <= data.settings.end; i++) {
         let hourColumn = document.createElement('div');
         hourColumn.className = 'hour-column';
@@ -56,6 +58,7 @@ async function processData() {
 
     }
 
+    // Create the hour columns for positions
     for (let i = data.settings.start; i <= data.settings.end; i++) {
         let hourColumn = document.createElement('div');
         hourColumn.className = 'hour-column';
@@ -80,9 +83,15 @@ async function processData() {
         }
     }
 
+    /**
+     * 
+     * Draw the controllers canvas
+     * 
+     */
+
     // Create a dictionary to store the y-axis value for each controller
     let controllerYAxis = {};
-    let controllerIndex = 1; // Start at 1 to start at 50px
+    let controllerIndex = 1;
 
     // Create a strip for each controller
     data.staffing.forEach(staff => {
@@ -106,7 +115,6 @@ async function processData() {
         strip.innerHTML = '&nbsp;' + staff.position;
         strip.style.top = `${stripStartYAxis + (controllerYAxis[staff.controller] - 1) * stripGap}px`;
 
-        // Get length of startTime and endTime including minutes
         let startTime = staff.startTime.split(':');
         let startTimeHour = parseInt(startTime[0]);
         let startTimeMinute = parseInt(startTime[1]);
@@ -127,6 +135,12 @@ async function processData() {
 
         canvasControllers.appendChild(strip);
     });
+
+    /**
+     * 
+     * Draw the positions canvas
+     * 
+     */
 
     // Do the same but for the positions where legend is position and strip are the controllers
     let positionYAxis = {};
@@ -153,7 +167,6 @@ async function processData() {
         strip.innerHTML = '&nbsp;' + data.controllers.find(controller => controller.id === staff.controller).name;
         strip.style.top = `${stripStartYAxis + (positionYAxis[staff.position] - 1) * stripGap}px`;
 
-        // Get length of startTime and endTime including minutes
         let startTime = staff.startTime.split(':');
         let startTimeHour = parseInt(startTime[0]);
         let startTimeMinute = parseInt(startTime[1]);
@@ -174,6 +187,22 @@ async function processData() {
 
         canvasPositions.appendChild(strip);
     });
+
+    /**
+     * 
+     * Adjust the width and height of the website
+     * 
+     */
+
+    // Set #container width to the total width of the canvas as long it doesn't exceed the window width
+    let containerWidth = Math.min(legendWidth + (data.settings.end - data.settings.start + 1) * hourWidth, window.innerWidth - 32);
+    document.querySelector('#container').style.width = `${containerWidth}px`;
+
+    // Adjust height of both canvas according to the last strip + 50px padding in bottom
+    let canvasHeight = Math.max(stripStartYAxis + (controllerIndex - 1) * stripGap, stripStartYAxis + (positionIndex - 1) * stripGap) + 50;
+    canvasControllers.style.height = `${canvasHeight}px`;
+    canvasPositions.style.height = `${canvasHeight}px`;
+
 }
 
-processData();
+run();
