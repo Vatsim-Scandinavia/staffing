@@ -104,8 +104,25 @@ header {
 
 /* Colors */
 
-.color-1{ background: hsl(0.0, 100%, 50%); }
-.color-2{ background: hsl(9.0, 100%, 50%); }
-.color-3{ background: hsl(18.0, 100%, 50%); }
-.color-4{ background: hsl(27.0, 100%, 50%); }
-.color-5{ background: hsl(36.0, 100%, 50%); }
+.color-positions-1 { background-color: #FF5733; } /* Vivid red-orange */
+.color-positions-2 { background-color: #33FF57; } /* Bright green */
+.color-positions-3 { background-color: #3357FF; } /* Deep blue */
+.color-positions-4 { background-color: #F33FF5; } /* Magenta */
+.color-positions-5 { background-color: #57FF33; } /* Lime green */
+.color-positions-6 { background-color: #FF3357; } /* Bright red */
+.color-positions-7 { background-color: #33F5FF; } /* Cyan */
+.color-positions-8 { background-color: #F5FF33; } /* Yellow */
+.color-positions-9 { background-color: #FF5733; } /* Another shade of red-orange for diversity */
+.color-positions-10 { background-color: #7F33FF; } /* Purple */
+
+/* Create unique colors */
+.color-controllers-1 { background-color: #DFA241; } 
+.color-controllers-2 { background-color: #A2DF41; }
+.color-controllers-3 { background-color: #41A2DF; }
+.color-controllers-4 { background-color: #DF41A2; }
+.color-controllers-5 { background-color: #41DFA2; }
+.color-controllers-6 { background-color: #A241DF; }
+.color-controllers-7 { background-color: #41DFDF; }
+.color-controllers-8 { background-color: #DFDF41; }
+.color-controllers-9 { background-color: #DF41A2; }
+.color-controllers-10 { background-color: #7F33FF; }

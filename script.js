@@ -3,7 +3,7 @@
 const hourWidth = 125;
 const legendWidth = 300;
 const stripStartYAxis = 60;
-const stripGap = 35;
+const stripGap = 25;
 
 const canvasControllers = document.querySelector('.canvas-controllers');
 const canvasPositions = document.querySelector('.canvas-positions');
@@ -57,6 +57,20 @@ async function run() {
     createHourColumns(canvasControllers, data.settings.start, data.settings.end);
     createHourColumns(canvasPositions, data.settings.start, data.settings.end);
 
+    // Coloring
+    let controllerColorMap = {};
+    let positionColorMap = {};
+    const allControllers = [...new Set(data.staffing.map(staff => staff.controller))];
+    const allPositions = [...new Set(data.staffing.map(staff => staff.position))];
+
+    allControllers.forEach((controller, index) => {
+        controllerColorMap[controller] = `color-controllers-${index % 10 + 1}`; // Maps controller ID to a color class
+    });
+
+    allPositions.forEach((position, index) => {
+        positionColorMap[position] = `color-positions-${index % 10 + 1}`; // Maps position ID to a color class
+    });
+
     /**
      * 
      * Draw the controllers canvas
@@ -70,6 +84,8 @@ async function run() {
     // Create a strip for each controller
     data.staffing.forEach(staff => {
 
+        var controller = data.controllers.find(controller => controller.id === staff.controller);
+
         // If the controller id is the same, they should maintain their respective y axis
         if (!controllerYAxis[staff.controller]) {
             controllerYAxis[staff.controller] = controllerIndex;
@@ -78,13 +94,14 @@ async function run() {
 
         // Draw the legend
         let legend = createElementWithClass('div', 'legend-strip');
-        let controller = data.controllers.find(controller => controller.id === staff.controller);
         legend.innerHTML = '&emsp;' + controller.name + ' (' + controller.rating + ')';
         legend.style.top = `${stripStartYAxis + (controllerYAxis[staff.controller] - 1) * stripGap}px`;
+        legend.classList.add(controllerColorMap[controller.id]);
         canvasControllers.appendChild(legend);
 
         // Draw the strip
         let strip = createElementWithClass('div', 'strip', '&nbsp;' + staff.position);
+        strip.classList.add(positionColorMap[staff.position]);
         strip.style.top = `${stripStartYAxis + (controllerYAxis[staff.controller] - 1) * stripGap}px`;
 
         const [startTimeHour, startTimeMinute] = staff.startTime.split(':').map(Number);
@@ -114,6 +131,8 @@ async function run() {
 
     data.staffing.forEach(staff => {
 
+        var controller = data.controllers.find(controller => controller.id === staff.controller);
+
         // If the position id is the same, they should maintain their respective y axis
         if (!positionYAxis[staff.position]) {
             positionYAxis[staff.position] = positionIndex;
@@ -122,13 +141,14 @@ async function run() {
 
         // Draw the legend
         let legend = createElementWithClass('div', 'legend-strip', '&emsp;' + staff.position);
+        legend.classList.add(positionColorMap[staff.position]);
         legend.style.top = `${stripStartYAxis + (positionYAxis[staff.position] - 1) * stripGap}px`;
         canvasPositions.appendChild(legend);
 
         // Draw the strip
         let strip = createElementWithClass('div', 'strip');
-        let controller = data.controllers.find(controller => controller.id === staff.controller);
         strip.innerHTML = '&nbsp;' + controller.name;
+        strip.classList.add(controllerColorMap[controller.id]);
         strip.style.top = `${stripStartYAxis + (positionYAxis[staff.position] - 1) * stripGap}px`;
 
         const [startTimeHour, startTimeMinute] = staff.startTime.split(':').map(Number);
