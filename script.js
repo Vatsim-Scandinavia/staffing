@@ -1,13 +1,36 @@
-async function run() {
 
-    // Init
-    let hourWidth = 125;
-    let legendWidth = 300;
-    let stripStartYAxis = 60;
-    let stripGap = 35;
-    
-    let canvasControllers = document.querySelector('.canvas-controllers');
-    let canvasPositions = document.querySelector('.canvas-positions');
+// Init
+const hourWidth = 125;
+const legendWidth = 300;
+const stripStartYAxis = 60;
+const stripGap = 35;
+
+const canvasControllers = document.querySelector('.canvas-controllers');
+const canvasPositions = document.querySelector('.canvas-positions');
+
+function createElementWithClass(type, className, html = '') {
+    const element = document.createElement(type);
+    element.className = className;
+    if (html) element.innerHTML = html;
+    return element;
+}
+
+function createHourColumns(canvas, start, end) {
+    for (let i = start; i <= end; i++) {
+        let hourColumn = createElementWithClass('div', 'hour-column', `${i}`.padStart(2, '0'));
+        canvas.appendChild(hourColumn);
+
+        for (let j = 0; j < 4; j++) {
+            let divider = createElementWithClass('div', 'hour-column-divider');
+            divider.style.left = `${(hourWidth / 4) * j}px`;
+            divider.textContent = `${j * 15}`.padStart(2, '0');
+            
+            hourColumn.appendChild(divider);
+        }
+    }
+}
+
+async function run() {
 
     // Fetch the data
     const response = await fetch('nl2024.json');
@@ -23,65 +46,16 @@ async function run() {
     document.querySelector('#title').textContent = data.settings.title;
 
     // Legend column for controllers
-    let legendControllers = document.createElement('div');
-    legendControllers.className = 'legend';
+    let legendControllers = createElementWithClass('div', 'legend');
     canvasControllers.appendChild(legendControllers);
 
     // Legend column for positions
-    let legendPositions = document.createElement('div');
-    legendPositions.className = 'legend';
+    let legendPositions = createElementWithClass('div', 'legend');
     canvasPositions.appendChild(legendPositions);
     
     // Create the hour columns for controllers
-    for (let i = data.settings.start; i <= data.settings.end; i++) {
-        let hourColumn = document.createElement('div');
-        hourColumn.className = 'hour-column';
-        hourColumn.textContent = i;
-        canvasControllers.appendChild(hourColumn);
-
-        // In each column add four child of `hour-column divider`
-        for (let j = 0; j < 4; j++) {
-            let divider = document.createElement('div');
-            divider.className = 'hour-column-divider';
-
-            switch(j) {
-                case 0: divider.textContent = '00'; break;
-                case 1: divider.textContent = '15'; break;
-                case 2: divider.textContent = '30'; break;
-                case 3: divider.textContent = '45'; break;
-            }
-
-            divider.style.left = `${(hourWidth / 4) * j}px`;
-            
-            hourColumn.appendChild(divider);
-        }
-
-    }
-
-    // Create the hour columns for positions
-    for (let i = data.settings.start; i <= data.settings.end; i++) {
-        let hourColumn = document.createElement('div');
-        hourColumn.className = 'hour-column';
-        hourColumn.textContent = i;
-        canvasPositions.appendChild(hourColumn);
-
-        // In each column add four child of `hour-column divider`
-        for (let j = 0; j < 4; j++) {
-            let divider = document.createElement('div');
-            divider.className = 'hour-column-divider';
-
-            switch(j) {
-                case 0: divider.textContent = '00'; break;
-                case 1: divider.textContent = '15'; break;
-                case 2: divider.textContent = '30'; break;
-                case 3: divider.textContent = '45'; break;
-            }
-
-            divider.style.left = `${(hourWidth / 4) * j}px`;
-            
-            hourColumn.appendChild(divider);
-        }
-    }
+    createHourColumns(canvasControllers, data.settings.start, data.settings.end);
+    createHourColumns(canvasPositions, data.settings.start, data.settings.end);
 
     /**
      * 
@@ -103,33 +77,25 @@ async function run() {
         }
 
         // Draw the legend
-        let legend = document.createElement('div');
-        legend.className = 'legend-strip';
-        legend.innerHTML = '&emsp;' + data.controllers.find(controller => controller.id === staff.controller).name + ' (' + data.controllers.find(controller => controller.id === staff.controller).rating + ')';
+        let legend = createElementWithClass('div', 'legend-strip');
+        let controller = data.controllers.find(controller => controller.id === staff.controller);
+        legend.innerHTML = '&emsp;' + controller.name + ' (' + controller.rating + ')';
         legend.style.top = `${stripStartYAxis + (controllerYAxis[staff.controller] - 1) * stripGap}px`;
         canvasControllers.appendChild(legend);
 
         // Draw the strip
-        let strip = document.createElement('div');
-        strip.className = 'strip';
-        strip.innerHTML = '&nbsp;' + staff.position;
+        let strip = createElementWithClass('div', 'strip', '&nbsp;' + staff.position);
         strip.style.top = `${stripStartYAxis + (controllerYAxis[staff.controller] - 1) * stripGap}px`;
 
-        let startTime = staff.startTime.split(':');
-        let startTimeHour = parseInt(startTime[0]);
-        let startTimeMinute = parseInt(startTime[1]);
-        let endTime = staff.endTime.split(':');
-        let endTimeHour = parseInt(endTime[0]);
-        let endTimeMinute = parseInt(endTime[1]);
+        const [startTimeHour, startTimeMinute] = staff.startTime.split(':').map(Number);
+        const [endTimeHour, endTimeMinute] = staff.endTime.split(':').map(Number);
 
-        // Calculate the time length in minutes
-        let timeLength = (endTimeHour * 60 + endTimeMinute) - (startTimeHour * 60 + startTimeMinute);
-
-        // Set startInPixels to the start time in pixels
+        // Set left to the start time in pixels
         let startInPixels = legendWidth + (startTimeHour - data.settings.start) * hourWidth + (startTimeMinute * (hourWidth / 60));
         strip.style.left = `${startInPixels}px`;
 
         // Set widthInPixels to the time length in pixels
+        let timeLength = (endTimeHour * 60 + endTimeMinute) - (startTimeHour * 60 + startTimeMinute);
         let widthInPixels = timeLength * (hourWidth / 60);
         strip.style.width = `${widthInPixels}px`;
 
@@ -155,33 +121,25 @@ async function run() {
         }
 
         // Draw the legend
-        let legend = document.createElement('div');
-        legend.className = 'legend-strip';
-        legend.innerHTML = '&emsp;' + staff.position;
+        let legend = createElementWithClass('div', 'legend-strip', '&emsp;' + staff.position);
         legend.style.top = `${stripStartYAxis + (positionYAxis[staff.position] - 1) * stripGap}px`;
         canvasPositions.appendChild(legend);
 
         // Draw the strip
-        let strip = document.createElement('div');
-        strip.className = 'strip';
-        strip.innerHTML = '&nbsp;' + data.controllers.find(controller => controller.id === staff.controller).name;
+        let strip = createElementWithClass('div', 'strip');
+        let controller = data.controllers.find(controller => controller.id === staff.controller);
+        strip.innerHTML = '&nbsp;' + controller.name;
         strip.style.top = `${stripStartYAxis + (positionYAxis[staff.position] - 1) * stripGap}px`;
 
-        let startTime = staff.startTime.split(':');
-        let startTimeHour = parseInt(startTime[0]);
-        let startTimeMinute = parseInt(startTime[1]);
-        let endTime = staff.endTime.split(':');
-        let endTimeHour = parseInt(endTime[0]);
-        let endTimeMinute = parseInt(endTime[1]);
-        
-        // Calculate the time length in minutes
-        let timeLength = (endTimeHour * 60 + endTimeMinute) - (startTimeHour * 60 + startTimeMinute);
-        
-        // Set startInPixels to the start time in pixels
+        const [startTimeHour, startTimeMinute] = staff.startTime.split(':').map(Number);
+        const [endTimeHour, endTimeMinute] = staff.endTime.split(':').map(Number);
+
+        // Set left to the start time in pixels
         let startInPixels = legendWidth + (startTimeHour - data.settings.start) * hourWidth + (startTimeMinute * (hourWidth / 60));
         strip.style.left = `${startInPixels}px`;
-        
+
         // Set widthInPixels to the time length in pixels
+        let timeLength = (endTimeHour * 60 + endTimeMinute) - (startTimeHour * 60 + startTimeMinute);
         let widthInPixels = timeLength * (hourWidth / 60);
         strip.style.width = `${widthInPixels}px`;
 
