@@ -32,8 +32,12 @@ function createHourColumns(canvas, start, end) {
 
 async function run() {
 
+    // Extract 'event' query parameter value
+    const urlParams = new URLSearchParams(window.location.search);
+    const eventName = urlParams.get('event'); // e.g., 'nl2024'
+
     // Fetch the data
-    const response = await fetch('nl2024.json');
+    const response = await fetch(`data/${eventName}.json`);
     const data = await response.json();
 
     /**
