@@ -1,0 +1,17 @@
+{
+    "settings": {
+        "title": "Norway Live 2024 Staffing",
+        "start": 9,
+        "end": 22
+    },
+    "controllers": [
+        {"id": "DAN", "name": "Daniel", "rating": "C1"},
+        {"id": "ROA", "name": "Roald", "rating": "C1"}
+    ],
+    "staffing": [
+        {"position":"ENGM_W_APP","controller":"DAN","startTime":"12:00","endTime":"12:45"},
+        {"position":"ENGM_W_APP","controller":"ROA","startTime":"13:00","endTime":"14:00"},
+        {"position":"ENGM_TWR","controller":"DAN","startTime":"16:00","endTime":"17:00"},
+        {"position":"ENGM_TWR","controller":"ROA","startTime":"17:00","endTime":"18:00"}
+    ]
+}
