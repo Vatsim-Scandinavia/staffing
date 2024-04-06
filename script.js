@@ -73,55 +73,6 @@ async function run() {
 
     /**
      * 
-     * Draw the controllers canvas
-     * 
-     */
-
-    // Create a dictionary to store the y-axis value for each controller
-    let controllerYAxis = {};
-    let controllerIndex = 1;
-
-    // Create a strip for each controller
-    data.staffing.forEach(staff => {
-
-        var controller = data.controllers.find(controller => controller.id === staff.controller);
-
-        // If the controller id is the same, they should maintain their respective y axis
-        if (!controllerYAxis[staff.controller]) {
-            controllerYAxis[staff.controller] = controllerIndex;
-            controllerIndex++;
-        }
-
-        // Draw the legend
-        let legend = createElementWithClass('div', 'legend-strip');
-        legend.innerHTML = '&emsp;' + controller.name + ' (' + controller.rating + ')';
-        legend.style.top = `${stripStartYAxis + (controllerYAxis[staff.controller] - 1) * stripGap}px`;
-        legend.classList.add(controllerColorMap[controller.id]);
-        if(controller.color) legend.style.backgroundColor = controller.color;
-        canvasControllers.appendChild(legend);
-
-        // Draw the strip
-        let strip = createElementWithClass('div', 'strip', '&nbsp;' + staff.position);
-        strip.classList.add(positionColorMap[staff.position]);
-        strip.style.top = `${stripStartYAxis + (controllerYAxis[staff.controller] - 1) * stripGap}px`;
-
-        const [startTimeHour, startTimeMinute] = staff.startTime.split(':').map(Number);
-        const [endTimeHour, endTimeMinute] = staff.endTime.split(':').map(Number);
-
-        // Set left to the start time in pixels
-        let startInPixels = legendWidth + (startTimeHour - data.settings.start) * hourWidth + (startTimeMinute * (hourWidth / 60));
-        strip.style.left = `${startInPixels}px`;
-
-        // Set widthInPixels to the time length in pixels
-        let timeLength = (endTimeHour * 60 + endTimeMinute) - (startTimeHour * 60 + startTimeMinute);
-        let widthInPixels = timeLength * (hourWidth / 60);
-        strip.style.width = `${widthInPixels}px`;
-
-        canvasControllers.appendChild(strip);
-    });
-
-    /**
-     * 
      * Draw the positions canvas
      * 
      */
@@ -167,6 +118,60 @@ async function run() {
 
         canvasPositions.appendChild(strip);
     });
+
+    /**
+     * 
+     * Draw the controllers canvas
+     * 
+     */
+
+    // Create a dictionary to store the y-axis value for each controller
+    let controllerYAxis = {};
+    let controllerIndex = 1;
+
+    // Create a strip for each controller
+    data.staffing.forEach(staff => {
+
+        var controller = data.controllers.find(controller => controller.id === staff.controller);
+
+        // Skip hidden staff
+        if(controller.hidden) return;
+
+        // If the controller id is the same, they should maintain their respective y axis
+        if (!controllerYAxis[staff.controller]) {
+            controllerYAxis[staff.controller] = controllerIndex;
+            controllerIndex++;
+        }
+
+        // Draw the legend
+        let legend = createElementWithClass('div', 'legend-strip');
+        legend.innerHTML = '&emsp;' + controller.name + ' (' + controller.rating + ')';
+        legend.style.top = `${stripStartYAxis + (controllerYAxis[staff.controller] - 1) * stripGap}px`;
+        legend.classList.add(controllerColorMap[controller.id]);
+        if(controller.color) legend.style.backgroundColor = controller.color;
+        canvasControllers.appendChild(legend);
+
+        // Draw the strip
+        let strip = createElementWithClass('div', 'strip', '&nbsp;' + staff.position);
+        strip.classList.add(positionColorMap[staff.position]);
+        strip.style.top = `${stripStartYAxis + (controllerYAxis[staff.controller] - 1) * stripGap}px`;
+
+        const [startTimeHour, startTimeMinute] = staff.startTime.split(':').map(Number);
+        const [endTimeHour, endTimeMinute] = staff.endTime.split(':').map(Number);
+
+        // Set left to the start time in pixels
+        let startInPixels = legendWidth + (startTimeHour - data.settings.start) * hourWidth + (startTimeMinute * (hourWidth / 60));
+        strip.style.left = `${startInPixels}px`;
+
+        // Set widthInPixels to the time length in pixels
+        let timeLength = (endTimeHour * 60 + endTimeMinute) - (startTimeHour * 60 + startTimeMinute);
+        let widthInPixels = timeLength * (hourWidth / 60);
+        strip.style.width = `${widthInPixels}px`;
+
+        canvasControllers.appendChild(strip);
+    });
+
+    
 
     /**
      * 
