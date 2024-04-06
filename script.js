@@ -48,6 +48,7 @@ async function run() {
 
     // Page title
     document.querySelector('#title').textContent = data.settings.title;
+    document.querySelector('#subtitle').textContent = data.settings.subtitle;
 
     // Legend columns
     canvasControllers.appendChild(createElementWithClass('div', 'legend'));

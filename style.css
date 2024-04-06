@@ -5,6 +5,11 @@
     --legend-strip-line-width: 100%;
 }
 
+h1, p{
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
 body {
     color: white;
     background-color: #1a475f;
@@ -75,6 +80,12 @@ header {
 
 .hour-column-divider:last-child{
     border-right: none;
+}
+
+.hour-column-divider:hover{
+    background: #ededed;
+    opacity: 0.4;
+    z-index: 5;
 }
 
 .legend-strip{
