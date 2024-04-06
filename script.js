@@ -65,11 +65,11 @@ async function run() {
     const allPositions = [...new Set(data.staffing.map(staff => staff.position))];
 
     allControllers.forEach((controller, index) => {
-        controllerColorMap[controller] = `color-controllers-${index % 40 + 1}`; // Maps controller ID to a color class
+        controllerColorMap[controller] = `color-controllers-${index % 13 + 1}`; // Maps controller ID to a color class
     });
 
     allPositions.forEach((position, index) => {
-        positionColorMap[position] = `color-positions-${index % 40 + 1}`; // Maps position ID to a color class
+        positionColorMap[position] = `color-positions-${index % 13 + 1}`; // Maps position ID to a color class
     });
 
     /**
