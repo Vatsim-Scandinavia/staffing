@@ -1,41 +1,42 @@
 {
     "settings": {
-        "title": "Norway Live 2024 Staffing DRAFT 2024-04-05",
-        "start": 9,
-        "end": 22
+        "title": "Staffing: Norway Live 2024 & Cross the Pond",
+        "subtitle": "All controllers are expected to be available for the entire duration of the event to help out where needed.",
+        "start": 10,
+        "end": 21
     },
     "controllers": [
         {"id": "ADB", "name": "Adrian Bjerke", "rating": "I1"},
         {"id": "ADF", "name": "Adrian Forsbom", "rating": "S3 + MAE"},
-        {"id": "ALF", "name": "Alexander", "rating": "S1"},
+        {"id": "ALF", "name": "[R] Alexander", "rating": "S1"},
         {"id": "AAO", "name": "Andreas", "rating": "S1"},
-        {"id": "ASE", "name": "Ask", "rating": "S1"},
+        {"id": "ASE", "name": "[R] Ask", "rating": "S1"},
         {"id": "BEV", "name": "Benjamin", "rating": "S2"},
         {"id": "DAL", "name": "Daniel", "rating": "I1"},
         {"id": "DAM", "name": "David", "rating": "S2"},
-        {"id": "DOJ", "name": "Dominik", "rating": "S2 + MAE"},
+        {"id": "DOJ", "name": "[R] Dominik", "rating": "S2 + MAE"},
         {"id": "HES", "name": "Henrik", "rating": "C1"},
         {"id": "HAH", "name": "Håvard", "rating": "C1"},
         {"id": "JAN", "name": "Jannik", "rating": "C1"},
         {"id": "JOM", "name": "Jonas", "rating": "S2 + MAE"},
         {"id": "KRL", "name": "Krister", "rating": "C3"},
-        {"id": "LAL", "name": "Lasse Ljung", "rating": "S2 + MAE"},
+        {"id": "LAL", "name": "[R] Lasse Ljung", "rating": "S2 + MAE"},
         {"id": "LAS", "name": "Lasse Skage", "rating": "S3 / Soon S3MAE"},
         {"id": "LIJ", "name": "Linus", "rating": "S3 + MAE"},
-        {"id": "MAR", "name": "Magnus Rudjord", "rating": "S3 + MAE"},
-        {"id": "MAM", "name": "Marcin", "rating": "S1"},
+        {"id": "MAR", "name": "[R] Magnus Rudjord", "rating": "S3 + MAE"},
+        {"id": "MAM", "name": "[R] Marcin", "rating": "S1"},
         {"id": "MAL", "name": "Marius Linge", "rating": "S2"},
         {"id": "MAH", "name": "Marius Helstad", "rating": "C1"},
         {"id": "NAH", "name": "Nick", "rating": "S2 + MAE"},
         {"id": "NIH", "name": "Nicolas", "rating": "S3"},
         {"id": "PKJ", "name": "Per-Kristian", "rating": "C1"},
         {"id": "ROS", "name": "Roald", "rating": "C1"},
-        {"id": "SAL", "name": "Sander", "rating": "S3 + MAE"},
+        {"id": "SAL", "name": "[R] Sander", "rating": "S3 + MAE"},
         {"id": "SEA", "name": "Sebastian Andby", "rating": "S3"},
-        {"id": "SER", "name": "Sebastian Rekdal", "rating": "C3"},
+        {"id": "SER", "name": "[R] Sebastian Rekdal", "rating": "C3"},
         {"id": "THO", "name": "Thor", "rating": "S2 + MAE / Soon S3"},
         {"id": "VES", "name": "Vegard", "rating": "S2"},
-        {"id": "", "name": "TBD", "rating": "!", "color": "red"},
+        {"id": "", "name": "AVL", "rating": "!", "color": "red", "hidden": true},
         {"id": "AVL", "name": "Available", "rating": "AVL", "color": "#e9e9e9"}
     ],
     "staffing": [
@@ -44,18 +45,47 @@
         
 
 
-        {"position":"SUP", "controller":"DAL", "startTime":"11:00","endTime":"14:00"},
+        {"position":"SUP", "controller":"DAL", "startTime":"11:00","endTime":"13:30"},
+        {"position":"SUP", "controller":"KRL", "startTime":"13:30","endTime":"16:00"},
+        {"position":"SUP", "controller":"SER", "startTime":"16:00","endTime":"18:00"},
 
-        {"position":"ENOS_CTR","controller":"HAH","startTime":"12:00","endTime":"14:00"},
-        {"position":"ENOS_N_CTR","controller":"KRL","startTime":"12:30","endTime":"14:30"},
-        {"position":"ENOS_?_CTR","controller":"SER","startTime":"12:30","endTime":"14:30"},
+        {"position":"ENOS_CTR","controller":"","startTime":"10:00","endTime":"11:30"},
+        {"position":"ENOS_CTR","controller":"KRL","startTime":"11:30","endTime":"13:30"},
+        {"position":"ENOS_CTR","controller":"DAL","startTime":"13:30","endTime":"15:30"},
+        {"position":"ENOS_CTR","controller":"ADB","startTime":"15:30","endTime":"17:00"},
+        {"position":"ENOS_CTR","controller":"HAH","startTime":"17:00","endTime":"18:00"},
+        {"position":"ENOS_CTR","controller":"","startTime":"18:00","endTime":"19:30"},
+        {"position":"ENOS_CTR","controller":"","startTime":"19:30","endTime":"22:00"},
 
+        {"position":"ENOS_N_CTR","controller":"HAH","startTime":"12:30","endTime":"14:30"},
+        {"position":"ENOS_N_CTR","controller":"","startTime":"14:30","endTime":"16:30"},
+
+        {"position":"ENOS_?_CTR","controller":"SER","startTime":"12:30","endTime":"14:00"},
+        {"position":"ENOS_?_CTR","controller":"","startTime":"14:00","endTime":"16:00"},
+
+        {"position":"ENSV_CTR","controller":"","startTime":"10:00","endTime":"14:00"},
         {"position":"ENSV_CTR","controller":"MAH","startTime":"12:00","endTime":"14:00"},
-        {"position":"ENSV_?_CTR","controller":"ADB","startTime":"12:30","endTime":"14:30"},
-        {"position":"ENSV_??_CTR","controller":"JAN","startTime":"12:30","endTime":"14:30"},
-
-        {"position":"ENBD_CTR","controller":"PKJ","startTime":"12:00","endTime":"14:00"},
+        {"position":"ENSV_CTR","controller":"JAN","startTime":"14:00","endTime":"16:00"},
+        {"position":"ENSV_CTR","controller":"ROS","startTime":"16:00","endTime":"17:00"},
+        {"position":"ENSV_CTR","controller":"MAH","startTime":"17:00","endTime":"18:00"},
+        {"position":"ENSV_CTR","controller":"","startTime":"18:00","endTime":"20:00"},
+        {"position":"ENSV_CTR","controller":"","startTime":"20:00","endTime":"21:00"},
         
+        {"position":"ENSV_?_CTR","controller":"ADB","startTime":"12:30","endTime":"14:30"},
+        {"position":"ENSV_?_CTR","controller":"PKJ","startTime":"14:30","endTime":"16:30"},
+
+        {"position":"ENSV_??_CTR","controller":"","startTime":"12:45","endTime":"14:30"},
+        {"position":"ENSV_??_CTR","controller":"MAH","startTime":"14:30","endTime":"16:30"},
+
+        {"position":"ENBD_CTR","controller":"","startTime":"10:00","endTime":"12:00"},
+        {"position":"ENBD_CTR","controller":"PKJ","startTime":"12:00","endTime":"14:00"},
+        {"position":"ENBD_CTR","controller":"HES","startTime":"14:00","endTime":"16:00"},
+        {"position":"ENBD_CTR","controller":"DAL","startTime":"16:00","endTime":"18:00"},
+        {"position":"ENBD_CTR","controller":"","startTime":"18:00","endTime":"20:00"},
+        {"position":"ENBD_CTR","controller":"","startTime":"20:00","endTime":"22:00"},
+
+        
+        {"position":"ENGM_W_APP","controller":"","startTime":"10:00","endTime":"12:00"},
         {"position":"ENGM_W_APP","controller":"LIJ","startTime":"12:00","endTime":"14:00"},
         {"position":"ENGM_W_APP","controller":"SAL","startTime":"14:00","endTime":"15:30"},
 
@@ -65,39 +95,41 @@
         {"position":"ENGM_E_APP","controller":"THO","startTime":"11:00","endTime":"12:30"},
         {"position":"ENGM_E_APP","controller":"LAS","startTime":"12:30","endTime":"14:30"},
 
-        {"position":"ENGM_W_TWR","controller":"","startTime":"11:00","endTime":"12:00"},
+        {"position":"ENGM_W_TWR","controller":"","startTime":"10:00","endTime":"12:00"},
         {"position":"ENGM_W_TWR","controller":"ROS","startTime":"12:00","endTime":"14:00"},
+        {"position":"ENGM_W_TWR","controller":"MAR","startTime":"14:00","endTime":"15:30"},
+        {"position":"ENGM_W_TWR","controller":"LAL","startTime":"15:30","endTime":"17:30"},
+        {"position":"ENGM_W_TWR","controller":"","startTime":"17:30","endTime":"19:30"},
+        {"position":"ENGM_W_TWR","controller":"","startTime":"19:30","endTime":"21:00"},
+        {"position":"ENGM_W_TWR","controller":"","startTime":"21:00","endTime":"22:00"},
 
-        {"position":"ENGM_E_TWR","controller":"HES","startTime":"13:00","endTime":"15:00"},
+        {"position":"ENGM_E_TWR","controller":"HES","startTime":"12:45","endTime":"13:45"},
+        {"position":"ENGM_E_TWR","controller":"LAL","startTime":"13:45","endTime":"15:00"},
+        {"position":"ENGM_E_TWR","controller":"HAH","startTime":"15:00","endTime":"16:30"},
         
-        {"position":"ENGM_W_GND","controller":"JOM","startTime":"12:00","endTime":"14:00"},
-        {"position":"ENGM_W_GND","controller":"","startTime":"14:00","endTime":"16:00"},
+        {"position":"ENGM_W_GND","controller":"","startTime":"10:00","endTime":"12:00"},
+        {"position":"ENGM_W_GND","controller":"NAH","startTime":"12:00","endTime":"14:00"},
+        {"position":"ENGM_W_GND","controller":"DOJ","startTime":"14:00","endTime":"16:00"},
+        {"position":"ENGM_W_GND","controller":"MAR","startTime":"16:00","endTime":"18:00"},
+        {"position":"ENGM_W_GND","controller":"","startTime":"18:00","endTime":"20:00"},
+        {"position":"ENGM_W_GND","controller":"","startTime":"20:00","endTime":"22:00"},
 
-        {"position":"ENGM_E_GND","controller":"NAH","startTime":"12:30","endTime":"14:30"},
-        {"position":"ENGM_Q_GND","controller":"DOJ","startTime":"12:00","endTime":"14:00"},
+        {"position":"ENGM_E_GND","controller":"JOM","startTime":"12:30","endTime":"14:30"},
+        {"position":"ENGM_E_GND","controller":"SER","startTime":"14:30","endTime":"15:45"},
 
+        {"position":"ENGM_Q_GND","controller":"JAN","startTime":"12:00","endTime":"13:30"},
+        {"position":"ENGM_Q_GND","controller":"","startTime":"13:30","endTime":"14:30"},
+        {"position":"ENGM_Q_GND","controller":"LIJ","startTime":"14:30","endTime":"15:30"},
+
+        {"position":"ENGM_W_DEL","controller":"","startTime":"10:00","endTime":"12:00"},
         {"position":"ENGM_W_DEL","controller":"SAL","startTime":"12:00","endTime":"13:30"},
         {"position":"ENGM_W_DEL","controller":"ADF","startTime":"13:30","endTime":"15:00"},
+        {"position":"ENGM_W_DEL","controller":"JOM","startTime":"15:00","endTime":"17:00"},
+        {"position":"ENGM_W_DEL","controller":"","startTime":"17:00","endTime":"19:00"},
+        {"position":"ENGM_W_DEL","controller":"","startTime":"19:00","endTime":"21:00"},
+        {"position":"ENGM_W_DEL","controller":"","startTime":"21:00","endTime":"22:00"},
 
-        {"position":"ENGM_P_DEL","controller":"MAR","startTime":"11:30","endTime":"13:30"},
-
-        {"position":"ENBR_W_APP","controller":"","startTime":"10:00","endTime":"12:00"},
-        {"position":"ENBR_TWR","controller":"","startTime":"11:00","endTime":"13:00"},
-        {"position":"ENBR_GND","controller":"","startTime":"11:00","endTime":"13:00"},
-        
-        {"position":"ENVA_APP","controller":"","startTime":"11:00","endTime":"13:00"},
-        {"position":"ENVA_TWR","controller":"","startTime":"11:00","endTime":"13:00"},
-
-        {"position":"ENTC_APP","controller":"","startTime":"11:00","endTime":"13:00"},
-        {"position":"ENTC_TWR","controller":"","startTime":"11:00","endTime":"13:00"},
-
-        {"position":"ENTO_APP","controller":"","startTime":"11:00","endTime":"13:00"},
-        {"position":"ENTO_TWR","controller":"","startTime":"11:00","endTime":"13:00"},
-
-        {"position":"ENZV_APP","controller":"","startTime":"11:00","endTime":"12:30"},
-        {"position":"ENZV_TWR","controller":"","startTime":"11:00","endTime":"13:00"},
-        {"position":"ENZV_GND","controller":"","startTime":"11:00","endTime":"13:00"}
-
+        {"position":"ENGM_P_DEL","controller":"MAR","startTime":"12:00","endTime":"13:30"}
 
     ]
 }
