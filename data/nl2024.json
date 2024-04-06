@@ -11,7 +11,6 @@
         {"id": "ALF", "name": "[R] Alexander", "rating": "S1"},
         {"id": "AAO", "name": "Andreas", "rating": "S1"},
         {"id": "ASE", "name": "[R] Ask", "rating": "S1"},
-        {"id": "BEV", "name": "Benjamin", "rating": "S2"},
         {"id": "DAL", "name": "Daniel", "rating": "I1"},
         {"id": "DAM", "name": "David", "rating": "S2"},
         {"id": "DOJ", "name": "[R] Dominik", "rating": "S2 + MAE"},
@@ -87,7 +86,7 @@
         
         {"position":"ENGM_W_APP","controller":"","startTime":"10:00","endTime":"12:00"},
         {"position":"ENGM_W_APP","controller":"LIJ","startTime":"12:00","endTime":"14:00"},
-        {"position":"ENGM_W_APP","controller":"SAL","startTime":"14:00","endTime":"15:30"},
+        {"position":"ENGM_W_APP","controller":"","startTime":"14:00","endTime":"15:30"},
 
         {"position":"ENGM_D_APP","controller":"ADF","startTime":"11:30","endTime":"13:00"},
         {"position":"ENGM_D_APP","controller":"THO","startTime":"13:00","endTime":"15:00"},
@@ -122,7 +121,7 @@
         {"position":"ENGM_Q/P_GND","controller":"LIJ","startTime":"14:30","endTime":"15:30"},
 
         {"position":"ENGM_W_DEL","controller":"","startTime":"10:00","endTime":"12:00"},
-        {"position":"ENGM_W_DEL","controller":"SAL","startTime":"12:00","endTime":"13:30"},
+        {"position":"ENGM_W_DEL","controller":"","startTime":"12:00","endTime":"13:30"},
         {"position":"ENGM_W_DEL","controller":"ADF","startTime":"13:30","endTime":"15:00"},
         {"position":"ENGM_W_DEL","controller":"JOM","startTime":"15:00","endTime":"17:00"},
         {"position":"ENGM_W_DEL","controller":"","startTime":"17:00","endTime":"19:00"},
