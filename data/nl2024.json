@@ -117,9 +117,9 @@
         {"position":"ENGM_E_GND","controller":"JOM","startTime":"12:30","endTime":"14:30"},
         {"position":"ENGM_E_GND","controller":"SER","startTime":"14:30","endTime":"15:45"},
 
-        {"position":"ENGM_Q_GND","controller":"JAN","startTime":"12:00","endTime":"13:30"},
-        {"position":"ENGM_Q_GND","controller":"","startTime":"13:30","endTime":"14:30"},
-        {"position":"ENGM_Q_GND","controller":"LIJ","startTime":"14:30","endTime":"15:30"},
+        {"position":"ENGM_Q/P_GND","controller":"MAR","startTime":"12:00","endTime":"13:30"},
+        {"position":"ENGM_Q/P_GND","controller":"","startTime":"13:30","endTime":"14:30"},
+        {"position":"ENGM_Q/P_GND","controller":"LIJ","startTime":"14:30","endTime":"15:30"},
 
         {"position":"ENGM_W_DEL","controller":"","startTime":"10:00","endTime":"12:00"},
         {"position":"ENGM_W_DEL","controller":"SAL","startTime":"12:00","endTime":"13:30"},
@@ -127,9 +127,7 @@
         {"position":"ENGM_W_DEL","controller":"JOM","startTime":"15:00","endTime":"17:00"},
         {"position":"ENGM_W_DEL","controller":"","startTime":"17:00","endTime":"19:00"},
         {"position":"ENGM_W_DEL","controller":"","startTime":"19:00","endTime":"21:00"},
-        {"position":"ENGM_W_DEL","controller":"","startTime":"21:00","endTime":"22:00"},
-
-        {"position":"ENGM_P_DEL","controller":"MAR","startTime":"12:00","endTime":"13:30"}
+        {"position":"ENGM_W_DEL","controller":"","startTime":"21:00","endTime":"22:00"}
 
     ]
 }
