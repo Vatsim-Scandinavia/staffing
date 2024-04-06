@@ -2,6 +2,7 @@
     --hour-width: 125px;
     --legend-width: 300px;
     --strip-height: 25px;
+    --legend-strip-line-width: 100%;
 }
 
 body {
@@ -86,6 +87,17 @@ header {
     line-height: 24px;
 }
 
+/* When legend-strip get a hover, add a horizontal black line through the content */
+.legend-strip:hover::before{
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: var(--legend-width);
+    width: calc(var(--legend-strip-line-width) - var(--legend-width));
+    height: 1px;
+    background: #c5c5c5;
+}
+
 .strip{
     position: absolute;
     top: 50px;
@@ -93,12 +105,13 @@ header {
     width: 100px;
     background: #66caac;
 
-    border-right: 1px solid #011328;
     box-sizing: border-box;
 
     height: var(--strip-height);
     font-size: 13px;
     line-height: 24px;
+
+    z-index: 2;
 
 }
 
@@ -154,7 +167,7 @@ header {
 .color-controllers-7 { background-color: #C9BAFF; }
 .color-controllers-8 { background-color: #BAC9FF; }
 .color-controllers-9 { background-color: #BAFFC9; }
-.color-controllers-10 { background-color: #C9FFBA; }
+.color-controllers-10 { background-color: #77cfa2; }
 .color-controllers-11 { background-color: #FFC9BA; }
 .color-controllers-12 { background-color: #BAE1FF; }
 .color-controllers-13 { background-color: #BAFFB3; }

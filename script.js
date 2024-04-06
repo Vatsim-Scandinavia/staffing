@@ -64,11 +64,11 @@ async function run() {
     const allPositions = [...new Set(data.staffing.map(staff => staff.position))];
 
     allControllers.forEach((controller, index) => {
-        controllerColorMap[controller] = `color-controllers-${index % 10 + 1}`; // Maps controller ID to a color class
+        controllerColorMap[controller] = `color-controllers-${index % 40 + 1}`; // Maps controller ID to a color class
     });
 
     allPositions.forEach((position, index) => {
-        positionColorMap[position] = `color-positions-${index % 10 + 1}`; // Maps position ID to a color class
+        positionColorMap[position] = `color-positions-${index % 40 + 1}`; // Maps position ID to a color class
     });
 
     /**
@@ -97,6 +97,7 @@ async function run() {
         legend.innerHTML = '&emsp;' + controller.name + ' (' + controller.rating + ')';
         legend.style.top = `${stripStartYAxis + (controllerYAxis[staff.controller] - 1) * stripGap}px`;
         legend.classList.add(controllerColorMap[controller.id]);
+        if(controller.color) legend.style.backgroundColor = controller.color;
         canvasControllers.appendChild(legend);
 
         // Draw the strip
@@ -149,6 +150,7 @@ async function run() {
         let strip = createElementWithClass('div', 'strip');
         strip.innerHTML = '&nbsp;' + controller.name;
         strip.classList.add(controllerColorMap[controller.id]);
+        if(controller.color) strip.style.backgroundColor = controller.color;
         strip.style.top = `${stripStartYAxis + (positionYAxis[staff.position] - 1) * stripGap}px`;
 
         const [startTimeHour, startTimeMinute] = staff.startTime.split(':').map(Number);
@@ -175,6 +177,9 @@ async function run() {
     // Set #container width to the total width of the canvas as long it doesn't exceed the window width
     let containerWidth = Math.min(legendWidth + (data.settings.end - data.settings.start + 1) * hourWidth, window.innerWidth - 32);
     document.querySelector('#container').style.width = `${containerWidth}px`;
+
+    // Set the --legend-strip-line-widthwith to container width
+    document.documentElement.style.setProperty('--legend-strip-line-width', `${containerWidth}px`);
 
     // Adjust height of both canvas according to the last strip + 50px padding in bottom
     let canvasHeight = Math.max(stripStartYAxis + (controllerIndex - 1) * stripGap, stripStartYAxis + (positionIndex - 1) * stripGap) + 50;
