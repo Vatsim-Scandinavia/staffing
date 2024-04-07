@@ -47,14 +47,16 @@
         {"position":"SUP", "controller":"DAN", "startTime":"11:00","endTime":"13:30"},
         {"position":"SUP", "controller":"KRI", "startTime":"13:30","endTime":"16:00"},
         {"position":"SUP", "controller":"ADB", "startTime":"16:00","endTime":"18:00"},
-        {"position":"SUP", "controller":"SER", "startTime":"18:00","endTime":"20:00"},
+        {"position":"SUP", "controller":"SER", "startTime":"18:00","endTime":"19:30"},
+        {"position":"SUP", "controller":"DAN", "startTime":"19:30","endTime":"22:00"},
 
         {"position":"ENOS_CTR","controller":"","startTime":"10:00","endTime":"11:30"},
         {"position":"ENOS_CTR","controller":"KRI","startTime":"11:30","endTime":"13:30"},
         {"position":"ENOS_CTR","controller":"DAN","startTime":"13:30","endTime":"15:30"},
-        {"position":"ENOS_CTR","controller":"SER","startTime":"15:30","endTime":"18:00"},
-        {"position":"ENOS_CTR","controller":"","startTime":"18:00","endTime":"19:30"},
-        {"position":"ENOS_CTR","controller":"","startTime":"19:30","endTime":"22:00"},
+        {"position":"ENOS_CTR","controller":"SER","startTime":"15:30","endTime":"17:30"},
+        {"position":"ENOS_CTR","controller":"ROA","startTime":"17:30","endTime":"19:00"},
+        {"position":"ENOS_CTR","controller":"JAN","startTime":"19:00","endTime":"20:30"},
+        {"position":"ENOS_CTR","controller":"","startTime":"20:30","endTime":"22:00"},
 
         {"position":"ENOS_N_CTR","controller":"HAV","startTime":"12:30","endTime":"14:30"},
         {"position":"ENOS_N_CTR","controller":"MAH","startTime":"14:30","endTime":"16:30"},
@@ -64,8 +66,9 @@
         {"position":"ENSV_CTR","controller":"JAN","startTime":"14:00","endTime":"16:00"},
         {"position":"ENSV_CTR","controller":"ROA","startTime":"16:00","endTime":"17:00"},
         {"position":"ENSV_CTR","controller":"MAH","startTime":"17:00","endTime":"18:00"},
-        {"position":"ENSV_CTR","controller":"","startTime":"18:00","endTime":"20:00"},
-        {"position":"ENSV_CTR","controller":"","startTime":"20:00","endTime":"21:00"},
+        {"position":"ENSV_CTR","controller":"ADB","startTime":"18:00","endTime":"19:00"},
+        {"position":"ENSV_CTR","controller":"SER","startTime":"19:00","endTime":"20:00"},
+        {"position":"ENSV_CTR","controller":"","startTime":"20:00","endTime":"22:00"},
         
         {"position":"ENSV_W_CTR","controller":"ADB","startTime":"12:30","endTime":"14:30"},
         {"position":"ENSV_W_CTR","controller":"PKJ","startTime":"14:30","endTime":"16:30"},
@@ -74,21 +77,25 @@
         {"position":"ENBD_CTR","controller":"PKJ","startTime":"12:00","endTime":"14:00"},
         {"position":"ENBD_CTR","controller":"HEN","startTime":"14:00","endTime":"16:00"},
         {"position":"ENBD_CTR","controller":"DAN","startTime":"16:00","endTime":"18:00"},
-        {"position":"ENBD_CTR","controller":"","startTime":"18:00","endTime":"20:00"},
-        {"position":"ENBD_CTR","controller":"","startTime":"20:00","endTime":"22:00"},
+        {"position":"ENBD_CTR","controller":"HEN","startTime":"18:00","endTime":"19:00"},
+        {"position":"ENBD_CTR","controller":"PKJ","startTime":"19:00","endTime":"20:00"},
+        {"position":"ENBD_CTR","controller":"ROA","startTime":"20:00","endTime":"22:00"},
 
         
         {"position":"ENGM_W_APP","controller":"","startTime":"10:00","endTime":"12:00"},
         {"position":"ENGM_W_APP","controller":"ADF","startTime":"12:00","endTime":"13:30"},
         {"position":"ENGM_W_APP","controller":"LIN","startTime":"13:30","endTime":"15:30"},
         {"position":"ENGM_W_APP","controller":"ADF","startTime":"15:30","endTime":"17:15"},
-        {"position":"ENGM_W_APP","controller":"","startTime":"17:15","endTime":"19:00"},
-        {"position":"ENGM_W_APP","controller":"SAN","startTime":"19:00","endTime":"21:00"},
-        {"position":"ENGM_W_APP","controller":"","startTime":"21:00","endTime":"22:00"},
+        {"position":"ENGM_W_APP","controller":"KRI","startTime":"17:15","endTime":"19:00"},
+        {"position":"ENGM_W_APP","controller":"MAG","startTime":"19:00","endTime":"21:00"},
+        {"position":"ENGM_W_APP","controller":"SAN","startTime":"21:00","endTime":"22:00"},
 
         {"position":"ENGM_D_APP","controller":"LIN","startTime":"11:30","endTime":"13:00"},
         {"position":"ENGM_D_APP","controller":"ROA","startTime":"13:00","endTime":"15:00"},
         {"position":"ENGM_D_APP","controller":"MAG","startTime":"15:00","endTime":"17:00"},
+        {"position":"ENGM_D_APP","controller":"THO","startTime":"17:00","endTime":"19:00"},
+        {"position":"ENGM_D_APP","controller":"SAN","startTime":"19:00","endTime":"20:45"},
+        {"position":"ENGM_D_APP","controller":"ADB","startTime":"20:45","endTime":"22:00"},
 
         {"position":"ENGM_E_APP","controller":"JAN","startTime":"11:45","endTime":"13:45"},
         {"position":"ENGM_E_APP","controller":"LAS","startTime":"13:45","endTime":"15:00"},
@@ -97,7 +104,7 @@
         {"position":"ENGM_W_TWR","controller":"DOM","startTime":"12:00","endTime":"14:00"},
         {"position":"ENGM_W_TWR","controller":"SER","startTime":"14:00","endTime":"15:15"},
         {"position":"ENGM_W_TWR","controller":"LAL","startTime":"15:15","endTime":"17:30"},
-        {"position":"ENGM_W_TWR","controller":"","startTime":"17:30","endTime":"19:30"},
+        {"position":"ENGM_W_TWR","controller":"DOM","startTime":"17:30","endTime":"19:30"},
         {"position":"ENGM_W_TWR","controller":"","startTime":"19:30","endTime":"21:00"},
         {"position":"ENGM_W_TWR","controller":"","startTime":"21:00","endTime":"22:00"},
 
@@ -119,12 +126,27 @@
         {"position":"ENGM_W_DEL","controller":"SER","startTime":"12:00","endTime":"13:30"},
         {"position":"ENGM_W_DEL","controller":"NIH","startTime":"13:30","endTime":"15:15"},
         {"position":"ENGM_W_DEL","controller":"LAS","startTime":"15:15","endTime":"17:00"},
-        {"position":"ENGM_W_DEL","controller":"","startTime":"17:00","endTime":"19:00"},
-        {"position":"ENGM_W_DEL","controller":"","startTime":"19:00","endTime":"21:00"},
+        {"position":"ENGM_W_DEL","controller":"JON","startTime":"17:00","endTime":"19:00"},
+        {"position":"ENGM_W_DEL","controller":"LIN","startTime":"19:00","endTime":"21:00"},
         {"position":"ENGM_W_DEL","controller":"","startTime":"21:00","endTime":"22:00"},
 
         {"position":"ENGM_P_DEL","controller":"MAG","startTime":"12:00","endTime":"13:30"},
-        {"position":"ENGM_P_DEL","controller":"DOM","startTime":"13:30","endTime":"15:00"}
+        {"position":"ENGM_P_DEL","controller":"DOM","startTime":"13:30","endTime":"15:00"},
+
+        {"position":"Unavailable", "controller":"HAV", "startTime":"18:00","endTime":"22:00", "hidden": true, "stripes": true},
+        {"position":"Unavailable", "controller":"MAH", "startTime":"18:00","endTime":"22:00", "hidden": true, "stripes": true},
+        {"position":"Unavailable", "controller":"SAN", "startTime":"10:00","endTime":"19:00", "hidden": true, "stripes": true},
+        {"position":"Food", "controller":"DAN", "startTime":"18:30","endTime":"19:30", "hidden": true, "stripesOrange": true},
+        {"position":"Food", "controller":"KRI", "startTime":"19:00","endTime":"20:00", "hidden": true, "stripesOrange": true},
+        {"position":"Food", "controller":"ADB", "startTime":"19:00","endTime":"20:00", "hidden": true, "stripesOrange": true},
+        {"position":"Food", "controller":"ROA", "startTime":"19:00","endTime":"20:00", "hidden": true, "stripesOrange": true},
+        {"position":"Food", "controller":"JAN", "startTime":"18:00","endTime":"19:00", "hidden": true, "stripesOrange": true},
+        {"position":"Food", "controller":"PKJ", "startTime":"18:00","endTime":"19:00", "hidden": true, "stripesOrange": true},
+        {"position":"Food", "controller":"HEN", "startTime":"19:00","endTime":"20:00", "hidden": true, "stripesOrange": true},
+        {"position":"Food", "controller":"LIN", "startTime":"18:00","endTime":"19:00", "hidden": true, "stripesOrange": true},
+        {"position":"Food", "controller":"MAG", "startTime":"18:00","endTime":"19:00", "hidden": true, "stripesOrange": true},
+        {"position":"Food", "controller":"THO", "startTime":"19:00","endTime":"20:00", "hidden": true, "stripesOrange": true},
+        {"position":"Food", "controller":"JON", "startTime":"19:00","endTime":"20:00", "hidden": true, "stripesOrange": true}
 
     ]
 }
