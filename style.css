@@ -102,11 +102,14 @@ header {
 .legend-strip:hover::before{
     content: '';
     position: absolute;
-    top: 50%;
+    top: 0;
     left: var(--legend-width);
     width: calc(var(--legend-strip-line-width) - var(--legend-width));
-    height: 1px;
-    background: #c5c5c5;
+    height: var(--strip-height);
+
+    border: 1px solid #737373;
+    box-sizing: border-box;
+    z-index: 5;
 }
 
 .strip{
