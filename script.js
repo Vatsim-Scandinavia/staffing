@@ -86,6 +86,9 @@ async function run() {
 
         var controller = data.controllers.find(controller => controller.id === staff.controller);
 
+        // Skip hidden staff
+        if(staff.hidden) return;
+
         // If the position id is the same, they should maintain their respective y axis
         if (!positionYAxis[staff.position]) {
             positionYAxis[staff.position] = positionIndex;
@@ -156,6 +159,12 @@ async function run() {
         let strip = createElementWithClass('div', 'strip', '&nbsp;' + staff.position);
         strip.classList.add(positionColorMap[staff.position]);
         strip.style.top = `${stripStartYAxis + (controllerYAxis[staff.controller] - 1) * stripGap}px`;
+
+        if(staff.stripes) {
+            strip.classList.add('stripes');
+        } else if(staff.stripesOrange){
+            strip.classList.add('stripes-orange');
+        }
 
         const [startTimeHour, startTimeMinute] = staff.startTime.split(':').map(Number);
         const [endTimeHour, endTimeMinute] = staff.endTime.split(':').map(Number);

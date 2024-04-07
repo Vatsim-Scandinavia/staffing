@@ -129,6 +129,26 @@ header {
 
 }
 
+.strip.stripes{
+    background: repeating-linear-gradient(
+        45deg,
+        #e7e7e7,
+        #e7e7e7 10px,
+        #d3d3d3 10px,
+        #d3d3d3 20px
+    );
+}
+
+.strip.stripes-orange{
+    background: repeating-linear-gradient(
+        45deg,
+        #ffb158,
+        #ffb158 10px,
+        #ffc079 10px,
+        #ffc079 20px
+    );
+}
+
 /* Colors */
 
 .color-positions-1 { background-color: #e0b5b5; }
