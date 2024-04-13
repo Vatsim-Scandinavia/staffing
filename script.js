@@ -164,6 +164,8 @@ async function run() {
             strip.classList.add('stripes');
         } else if(staff.stripesOrange){
             strip.classList.add('stripes-orange');
+        } else if(staff.stripesBlue){
+            strip.classList.add('stripes-blue');
         }
 
         const [startTimeHour, startTimeMinute] = staff.startTime.split(':').map(Number);

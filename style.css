@@ -149,6 +149,16 @@ header {
     );
 }
 
+.strip.stripes-blue{
+    background: repeating-linear-gradient(
+        45deg,
+        #8cbeff,
+        #8cbeff 10px,
+        #b1d3ff 10px,
+        #b1d3ff 20px
+    );
+}
+
 /* Colors */
 
 .color-positions-1 { background-color: #e0b5b5; }
