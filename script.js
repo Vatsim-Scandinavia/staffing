@@ -30,6 +30,46 @@ function createHourColumns(canvas, start, end) {
     }
 }
 
+function getCurrentTimePosition(startHour, endHour) {
+    const now = new Date();
+    const hours = now.getHours();
+    const minutes = now.getMinutes();
+    const totalMinutesFromStart = (hours - startHour) * 60 + minutes;
+    if (hours >= startHour && hours <= endHour) {
+        return totalMinutesFromStart * (hourWidth / 60);
+    }
+    return null; // Current time is out of the event bounds
+}
+
+function drawCurrentTimeLine(canvas, startHour, endHour) {
+    const timeLinePosition = getCurrentTimePosition(startHour, endHour);
+    if (timeLinePosition !== null) {
+        const currentTimeLine = document.createElement('div');
+        currentTimeLine.className = 'current-time-line'; // Use class for the element
+        currentTimeLine.style.left = `${legendWidth + timeLinePosition}px`; // Set horizontal position
+        canvas.appendChild(currentTimeLine);
+    } else {
+        removeCurrentTimeLine(canvas); // Ensures no line if out of operational hours
+    }
+}
+
+function updateCurrentTimeLine(canvas, startHour, endHour) {
+    const timeLinePosition = getCurrentTimePosition(startHour, endHour);
+    const currentTimeLine = canvas.querySelector('.current-time-line');
+    if (currentTimeLine && timeLinePosition !== null) {
+        currentTimeLine.style.left = `${legendWidth + timeLinePosition}px`;
+    } else {
+        drawCurrentTimeLine(canvas, startHour, endHour); // Redraw or remove the line as needed
+    }
+}
+
+function removeCurrentTimeLine(canvas) {
+    const existingLine = canvas.querySelector('.current-time-line');
+    if (existingLine) {
+        canvas.removeChild(existingLine);
+    }
+}
+
 async function run() {
 
     // Extract 'event' query parameter value
@@ -202,6 +242,18 @@ async function run() {
     let canvasHeight = Math.max(stripStartYAxis + (controllerIndex - 1) * stripGap, stripStartYAxis + (positionIndex - 1) * stripGap) + 50;
     canvasControllers.style.height = `${canvasHeight}px`;
     canvasPositions.style.height = `${canvasHeight}px`;
+
+
+    // Set the time
+    const startHour = data.settings.start; // e.g., 10
+    const endHour = data.settings.end; // e.g., 21
+    drawCurrentTimeLine(canvasControllers, startHour, endHour); // Draw on controller canvas
+    drawCurrentTimeLine(canvasPositions, startHour, endHour); // Draw on position canvas
+
+    setInterval(() => {
+        updateCurrentTimeLine(canvasControllers, startHour, endHour); // Update on controller canvas
+        updateCurrentTimeLine(canvasPositions, startHour, endHour); // Update on position canvas
+    }, 1000); // Update every minute
 
 }
 

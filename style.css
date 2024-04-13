@@ -88,6 +88,16 @@ header {
     z-index: 5;
 }
 
+.current-time-line {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background-color: red;
+    opacity: 0.3;
+    z-index: 10; /* Ensures the line is above other canvas elements */
+}
+
 .legend-strip{
     width: var(--legend-width);
     position: absolute;
