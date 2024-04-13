@@ -61,17 +61,17 @@
         {"position":"ENOS_N_CTR","controller":"HAV","startTime":"12:30","endTime":"14:30"},
         {"position":"ENOS_N_CTR","controller":"MAH","startTime":"14:30","endTime":"16:30"},
 
-        {"position":"ENSV_CTR","controller":"","startTime":"10:00","endTime":"14:00"},
-        {"position":"ENSV_CTR","controller":"MAH","startTime":"12:00","endTime":"14:00"},
-        {"position":"ENSV_CTR","controller":"JAN","startTime":"14:00","endTime":"16:00"},
-        {"position":"ENSV_CTR","controller":"ROA","startTime":"16:00","endTime":"17:00"},
-        {"position":"ENSV_CTR","controller":"MAH","startTime":"17:00","endTime":"18:00"},
-        {"position":"ENSV_CTR","controller":"ADB","startTime":"18:00","endTime":"19:00"},
-        {"position":"ENSV_CTR","controller":"SER","startTime":"19:00","endTime":"20:00"},
-        {"position":"ENSV_CTR","controller":"","startTime":"20:00","endTime":"22:00"},
-        
-        {"position":"ENSV_W_CTR","controller":"ADB","startTime":"12:30","endTime":"14:30"},
-        {"position":"ENSV_W_CTR","controller":"PKJ","startTime":"14:30","endTime":"16:30"},
+        {"position":"ENSV_CTR","controller":"ADB","startTime":"12:30","endTime":"14:30"},
+        {"position":"ENSV_CTR","controller":"PKJ","startTime":"14:30","endTime":"16:30"},
+
+        {"position":"ENSV_N_CTR","controller":"","startTime":"10:00","endTime":"14:00"},
+        {"position":"ENSV_N_CTR","controller":"MAH","startTime":"12:00","endTime":"14:00"},
+        {"position":"ENSV_N_CTR","controller":"JAN","startTime":"14:00","endTime":"16:00"},
+        {"position":"ENSV_N_CTR","controller":"ROA","startTime":"16:00","endTime":"17:00"},
+        {"position":"ENSV_N_CTR","controller":"MAH","startTime":"17:00","endTime":"18:00"},
+        {"position":"ENSV_N_CTR","controller":"ADB","startTime":"18:00","endTime":"19:00"},
+        {"position":"ENSV_N_CTR","controller":"SER","startTime":"19:00","endTime":"20:00"},
+        {"position":"ENSV_N_CTR","controller":"","startTime":"20:00","endTime":"22:00"},
 
         {"position":"ENBD_CTR","controller":"","startTime":"10:00","endTime":"12:00"},
         {"position":"ENBD_CTR","controller":"PKJ","startTime":"12:00","endTime":"14:00"},
@@ -134,7 +134,6 @@
         {"position":"ENGM_P_DEL","controller":"DOM","startTime":"13:30","endTime":"15:00"},
 
         {"position":"Unavailable", "controller":"HAV", "startTime":"18:00","endTime":"22:00", "hidden": true, "stripes": true},
-        {"position":"Unavailable", "controller":"MAH", "startTime":"18:00","endTime":"22:00", "hidden": true, "stripes": true},
         {"position":"Unavailable", "controller":"SAN", "startTime":"10:00","endTime":"19:00", "hidden": true, "stripes": true},
         {"position":"Food", "controller":"DAN", "startTime":"18:30","endTime":"19:30", "hidden": true, "stripesOrange": true},
         {"position":"Food", "controller":"KRI", "startTime":"19:00","endTime":"20:00", "hidden": true, "stripesOrange": true},
