@@ -40,16 +40,16 @@
     ],
     "staffing": [
         
-        {"position":"SUP", "controller":"DAN", "startTime":"11:00","endTime":"13:30"},
+        {"position":"SUP", "controller":"DAN", "startTime":"10:00","endTime":"13:30"},
         {"position":"SUP", "controller":"KRI", "startTime":"13:30","endTime":"16:00"},
-        {"position":"SUP", "controller":"ADB", "startTime":"16:00","endTime":"18:00"},
-        {"position":"SUP", "controller":"", "startTime":"18:00","endTime":"19:00"},
+        {"position":"SUP", "controller":"DAN", "startTime":"16:00","endTime":"18:00"},
+        {"position":"SUP", "controller":"KRI", "startTime":"18:00","endTime":"19:00"},
         {"position":"SUP", "controller":"DAN", "startTime":"19:00","endTime":"22:00"},
 
         {"position":"ENOS_CTR","controller":"JAN","startTime":"10:00","endTime":"11:30"},
         {"position":"ENOS_CTR","controller":"KRI","startTime":"11:30","endTime":"13:30"},
         {"position":"ENOS_CTR","controller":"DAN","startTime":"13:30","endTime":"15:30"},
-        {"position":"ENOS_CTR","controller":"","startTime":"15:30","endTime":"17:30"},
+        {"position":"ENOS_CTR","controller":"ADB","startTime":"15:30","endTime":"17:30"},
         {"position":"ENOS_CTR","controller":"ROA","startTime":"17:30","endTime":"19:00"},
         {"position":"ENOS_CTR","controller":"JAN","startTime":"19:00","endTime":"20:30"},
         {"position":"ENOS_CTR","controller":"HEN","startTime":"20:30","endTime":"22:00"},
@@ -57,6 +57,7 @@
         {"position":"ENOS_N_CTR","controller":"HAV","startTime":"12:30","endTime":"14:30"},
         {"position":"ENOS_N_CTR","controller":"MAH","startTime":"14:30","endTime":"16:30"},
 
+        {"position":"ENSV_CTR","controller":"HEN","startTime":"10:00","endTime":"12:30"},
         {"position":"ENSV_CTR","controller":"ADB","startTime":"12:30","endTime":"15:15"},
         {"position":"ENSV_CTR","controller":"ROA","startTime":"15:15","endTime":"17:00"},
         {"position":"ENSV_CTR","controller":"MAH","startTime":"17:00","endTime":"19:00"},
@@ -164,7 +165,7 @@
         {"position":"ENVA_APP","controller":"MAH","startTime":"20:00","endTime":"22:00"},
 
         {"position":"ENVA_TWR","controller":"VEG","startTime":"10:00","endTime":"11:30"},
-        {"position":"ENVA_TWR","controller":"HEN","startTime":"11:30","endTime":"12:15"},
+        {"position":"ENVA_TWR","controller":"","startTime":"11:30","endTime":"12:15"},
         {"position":"ENVA_TWR","controller":"MAL","startTime":"12:15","endTime":"15:45"},
         {"position":"ENVA_TWR","controller":"NIA","startTime":"15:45","endTime":"18:00"},
         {"position":"ENVA_TWR","controller":"ADF","startTime":"20:00","endTime":"22:00"},
